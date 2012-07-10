@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:data="http://www.springframework.org/schema/data/jpa"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/context
+          http://www.springframework.org/schema/context/spring-context-3.0.xsd
+          http://www.springframework.org/schema/data/jpa
+          http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+          http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+    <bean id="userCredentials" class="org.springframework.data.authentication.UserCredentials">
+        <constructor-arg name="username" value="YOUR_MONGO_DB_USERNAME"/>
+        <constructor-arg name="password" value="YOUR_MONGO_DB_PASSWORD"/>
+    </bean>
+
+
+    <bean id="mongoTemplate"
+          class="org.springframework.data.mongodb.core.MongoTemplate">
+        <constructor-arg ref="mongo"/>
+        <constructor-arg name="databaseName" value="YOUR_MONGO_DB_NAME"/>
+        <constructor-arg ref="userCredentials"/>
+    </bean>
+
+    <!-- Factory bean that creates the Mongo instance -->
+    <bean id="mongo" class="org.springframework.data.mongodb.core.MongoFactoryBean">
+        <property name="host" value="YOUR_MONGO_DB_HOST"/>
+        <property name="port" value="35027"/>
+    </bean>
+
+    <!-- To translate any MongoExceptions thrown in @Repository annotated classes -->
+    <context:annotation-config/>
+
+    <context:component-scan base-package="com.mongodb"/>
+
+    <!--<data:repositories base-package="com.mongodb.repositories"/>-->
+
+</beans>
