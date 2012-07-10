@@ -20,6 +20,8 @@ public class Application {
 		SimpleOperations simpleOperations = context.getBean(SimpleOperations.class);
 		simpleOperations.run();
 
+		MapReduce mapReduceExample = context.getBean(MapReduce.class);
+		mapReduceExample.run();
 
 	}
 
