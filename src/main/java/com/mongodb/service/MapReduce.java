@@ -1,7 +1,7 @@
 /**
  * Copyright 2011 Nokia Siemens Networks 
  */
-package com.mongodb;
+package com.mongodb.service;
 
 import com.mongodb.domain.ValueObject;
 import org.slf4j.Logger;
@@ -9,16 +9,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.mapreduce.MapReduceResults;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 /**
  * Sample map reduce operation on mongodb
  *
  * @author mlipski
  */
-@Repository
+@Service
 public class MapReduce {
-	Logger logger = LoggerFactory.getLogger(SimpleOperations.class);
+	Logger logger = LoggerFactory.getLogger(PersonServiceMongoOperations.class);
 
 	@Autowired
 	MongoOperations mongoOperations;
