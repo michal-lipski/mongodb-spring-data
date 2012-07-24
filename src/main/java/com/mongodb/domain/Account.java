@@ -1,20 +1,23 @@
 package com.mongodb.domain;
 
+import com.mysema.query.annotations.QueryEmbeddable;
+
+@QueryEmbeddable
 public class Account {
 
 	public enum Type {
 		SAVINGS, CHECKING
 	}
-	
+
 	private String id;
-	
+
 	private String accountNumber;
-	
+
 	private Type accountType;
-	
+
 	private Double balance;
 
-	public Account(){
+	public Account() {
 	}
 
 	public Account(String accountNumber, Type accountType, Double balance) {

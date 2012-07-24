@@ -1,30 +1,40 @@
-/**
- * Copyright 2011 Nokia Siemens Networks 
- */
+
 package com.mongodb.service;
 
+import com.mongodb.repository.PersonRepository;
 import com.mongodb.service.MapReduce;
 import com.mongodb.service.PersonServiceMongoOperations;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
- * Sample application to call mongodb example
+ * Test to call mongodb example.
  *
  * @author mlipski
  */
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = "classpath:applicationContext.xml")
 public class PersonServiceMongoOperationsTest {
 
-	public static void main(String[] args) {
+	@Autowired
+	PersonServiceMongoOperations personServiceMongoOperations;
 
-		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+	@Autowired
+	MapReduce mapReduce;
 
-		PersonServiceMongoOperations personServiceMongoOperations = context.getBean(PersonServiceMongoOperations.class);
+	@Test
+	public void shouldPerformSampleOperations() {
 		personServiceMongoOperations.performSampleOperations();
+	}
 
-		MapReduce mapReduceExample = context.getBean(MapReduce.class);
-		mapReduceExample.run();
-
+	@Test
+	public void shouldPerformSampleMapReduceOperations() {
+		mapReduce.run();
 	}
 
 }

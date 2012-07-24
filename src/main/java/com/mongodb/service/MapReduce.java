@@ -1,6 +1,4 @@
-/**
- * Copyright 2011 Nokia Siemens Networks 
- */
+
 package com.mongodb.service;
 
 import com.mongodb.domain.ValueObject;

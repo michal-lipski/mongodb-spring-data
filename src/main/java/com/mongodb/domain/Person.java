@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.geo.Point;
+import org.springframework.data.mongodb.core.index.GeoSpatialIndexed;
 import org.springframework.data.mongodb.core.mapping.Document;
-//stored in collection named "person"
+
 @Document
 public class Person {
 
@@ -15,6 +17,9 @@ public class Person {
 	private String name;
 
 	private int age;
+
+	@GeoSpatialIndexed
+	private Point location;
 
 	private List<Account> accounts = new ArrayList<Account>();
 
@@ -61,6 +66,14 @@ public class Person {
 
 	public void setAccounts(List<Account> accounts) {
 		this.accounts = accounts;
+	}
+
+	public Point getLocation() {
+		return location;
+	}
+
+	public void setLocation(Point location) {
+		this.location = location;
 	}
 
 	@Override

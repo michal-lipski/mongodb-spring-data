@@ -1,10 +1,8 @@
-/**
- * Copyright 2011 Nokia Siemens Networks 
- */
+
 package com.mongodb.domain;
 
 /**
- * TODO mlip; javadoc
+ * Object for stroing id, value pair.
  *
  * @author mlipski
  */

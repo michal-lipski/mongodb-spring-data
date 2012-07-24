@@ -1,7 +1,6 @@
 package com.mongodb.repository;
 
 import com.mongodb.domain.Person;
-import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 
@@ -10,6 +9,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  * 
  * @author mlipski
  */
-public interface PersonRepository extends MongoRepository<Person, ObjectId>{
+public interface PersonRepository extends MongoRepository<Person, String>{
 
 }
