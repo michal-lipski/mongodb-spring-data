@@ -1,6 +1,8 @@
 mongodb-spring-data
 ===================
 
+[![Build Status](https://buildhive.cloudbees.com/job/michal-lipski/job/mongodb-spring-data/badge/icon)](https://buildhive.cloudbees.com/job/michal-lipski/job/mongodb-spring-data/)
+
 MongoDb sample application using spring data mongodb.
 
 * spring-data-mongodb 1.0.2.RELEASE
